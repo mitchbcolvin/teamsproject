@@ -8,4 +8,6 @@ public class Teacher implements Serializable {
         this.teacherName = teacherName;
         this.yearsOfExperince = yearsOfExperince;
     }
+    public void setTeacher();
+    
 }
