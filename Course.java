@@ -12,6 +12,10 @@ public class Course implements Serializable{
     }
 
     public void setTeacher(Teacher t){
-        teacher = t;
+        this.teacher = t;
     }
+
+    public int totalGrade()
+
+    
 }
