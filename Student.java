@@ -14,7 +14,7 @@ public class Student implements Serializable {
     }
 
     public void setstudentName(String n ){
-        name = n;
+        studentName = n;
     }  
     
     public String getstudentName(){
@@ -22,11 +22,15 @@ public class Student implements Serializable {
     }
 
     public void setgradeLevel(int gradeLevel){
-        this.gradeLevel = gradeLevel
+        this.gradeLevel = gradeLevel;
     }
     
     public int getgradeLevel(){
         return gradeLevel;
+    }
+
+    public void addCourse(Course c){
+        courses.add(c);
     }
     
     

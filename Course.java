@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Course implements Serializable{
+public class Course implements Serializable, Cloneable{
     private String subject;
     private int grade;
     private boolean current;
@@ -25,6 +25,28 @@ public class Course implements Serializable{
 
     public void setTeacher(Teacher t){
         this.teacher = t;
+    }
+
+    public void setgrade(int grade){
+        this.grade = grade;
+    }
+    public int getgrade(){
+        return grade;
+    }
+
+    public void setcurrent(boolean current){
+        this.current = current;
+    }
+    public boolean getcurrent(){
+        return current;
+    }
+
+    public Course clone() {
+        try {
+            return (Course) super.clone();
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public int totalGrade()

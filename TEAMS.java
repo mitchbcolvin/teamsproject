@@ -114,14 +114,35 @@ public class TEAMS{
         }else if (choice2 = 2){
             modifygradelevel(student);
         }else if (choice2 = 3){
-            addclass();
+            addclass(student);
         }else if (choice2 = 4){
             removeclass();
         }
 
     }
-    private static void addclass() {
+    private static void addclass(Student s) {
+        System.out.println("Pick a Class");
+        optionSix();
+        System.out.println();
+        System.out.println("Choice:");
+        int ans = sc.nextInt();
+        sc.nextLine();
+        if (ans > -1 && ans < courses.size()){
+            Course c = courses.get(ans).clone();
+            System.out.println("Enter grade for the course:");
+            int grade = sc.nextInt();
+            c.setgrade(grade);
+            sc.nextLine();
+            System.out.println("Currently taking it (y/n)?");
+            String yesNo = sc.nextLine();
+            if (yesNo.equals("y")){
+                c.setcurrent(true);
+            }
+        s.addCourse(c);
+
+        }
         
+
     }
 
     private static void modifygradelevel(Student s) {
