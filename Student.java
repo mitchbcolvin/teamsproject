@@ -4,13 +4,32 @@ import java.util.ArrayList;
 public class Student implements Serializable {
     private String studentName;
     private int gradeLevel;
+    private int calculateGPA;
     private ArrayList<Course> courses;
 
     public Student(String studentName, int gradeLevel){
         this.studentName = studentName;
         this.gradeLevel = gradeLevel;
-        this.courses = newArrayList<>;
+        courses= new ArrayList<>();
     }
+
+    public void setstudentName(String n ){
+        name = n;
+    }  
+    
+    public String getstudentName(){
+        return studentName;
+    }
+
+    public void setgradeLevel(int gradeLevel){
+        this.gradeLevel = gradeLevel
+    }
+    
+    public int getgradeLevel(){
+        return gradeLevel;
+    }
+    
+    
     public boolean calculateGPA(){
         if(totalGrade = (totalGrade >= 90),(totalGrade <= 100));
         System.out.println("GPA is 4");

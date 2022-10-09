@@ -11,6 +11,18 @@ public class Course implements Serializable{
         this.grade = grade;
     }
 
+    public Course(String subject, Teacher t){
+        this.subject = subject;
+        this.teacher = t;
+    }
+
+    public void setsubject( String subject){
+        this.subject = subject;
+    }
+    public String getsubject(){
+        return subject;
+    }
+
     public void setTeacher(Teacher t){
         this.teacher = t;
     }

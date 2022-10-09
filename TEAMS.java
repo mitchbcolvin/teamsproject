@@ -36,14 +36,76 @@ public class TEAMS{
 
 
         //############## MAIN MENU STARTS HERE ##############
-        int ans = 0;
 
-        while(ans != -1){
-            System.out.println("1. ");
-        }
-        System.out.println
+        System.out.println("Welcome to Teams!");
+       
+        int choice = 1;
+        while(choice > 0){
+            System.out.println();
+            System.out.println("1) Add Students ");
+            System.out.println("2) Add Teacher ");
+            System.out.println("3) Add Course ");
+            System.out.println("4) Edit Students ");
+            System.out.println("5) List All Students ");
+            System.out.println("6) List All Courses ");
+            System.out.println("7) Search For a Student");
+            System.out.println("8) Exit ");
+            System.out.println();
+            System.out.println("Choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            if(choice == 1) {
+                optionOne();
+            }else if (choice == 2){
+                optionTwo();
+            }else if (choice == 3){
+                optionThree();
+            }else if (choice == 4){
+                optionFour();
+            }else if (choice == 5){
+                optionFive();
+            }else if (choice == 6){
+                optionSix();
+            }else if (choice == 7){
+                optionSeven();
+            }else if (choice == 8){
+                optionEight();
+            }
         
+        }
+    }
+    private static void optionThree() {
+        System.out.println("Enter Subject");
+        String subject = sc.nextLine();
+        System.out.println("Choose a Teacher");
+        for (int i = 0; i < teachers.size(); i++){
+            System.out.println(i + " " + teachers.get(i));
+        }
+        int choice = sc.nextInt();
+        sc.nextLine();
+        Teacher t = teachers.get(choice);
 
+        Course newCourse = new Course( subject, t);
+        courses.add(newCourse);
+    }
+    private static void optionTwo() {
+        System.out.println("Enter Teacher's Name");
+        String teacherName = sc.nextLine();
+        System.out.println("Enter Years of Experince");
+        int yearsOfExperience = sc.nextInt();
+        sc.nextLine();
+        Teacher t = new Teacher( teacherName, yearsOfExperience);
+        teachers.add(t);
+    }
+    private static void optionOne() {
+        System.out.println("Enter Student's Name");
+        String studentName = sc.nextLine();
+        System.out.println("Enter Student's Grade Level");
+        int gradeLevel = sc.nextInt();
+        sc.nextLine();
+        Student s = new Student( studentName,  gradeLevel);
+        students.add(s);
     }
 
     //#### DO NOT CHANGE THIS FUNCTION ####
