@@ -75,6 +75,67 @@ public class TEAMS{
         
         }
     }
+
+    private static void optionSix(){
+        System.out.println("Listing Courses");
+        for (int i = 0; i < courses.size(); i ++){
+            System.out.println( i + " " + courses.get(i));
+        }
+    }
+
+
+    private static void optionFive(){
+        System.out.println("Listing Students");
+        for (int i = 0; i < students.size(); i++){
+            System.out.println(i + " " + students.get(i));
+        }
+    }
+
+    private static void optionFour(){
+        System.out.println("Pick Student to Edit");
+        for (int i = 0; i < students.size(); i++){
+            System.out.println(i + " " + students.get(i));
+        }
+        int choice = sc.nextInt();
+        Student student = students.get(choice);
+        sc.nextLine();
+
+        System.out.println("1) Modify Name");
+        System.out.println("2) Modify Grade Level");
+        System.out.println("3) Add Class");
+        System.out.println("4) Remove Class");
+        System.out.println();
+        System.out.println("Choice");
+        int choice2 = sc.nextInt();
+        sc.nextLine();
+
+        if(choice2 == 1){
+            modifyname(student);
+        }else if (choice2 = 2){
+            modifygradelevel(student);
+        }else if (choice2 = 3){
+            addclass();
+        }else if (choice2 = 4){
+            removeclass();
+        }
+
+    }
+    private static void addclass() {
+        
+    }
+
+    private static void modifygradelevel(Student s) {
+        System.out.println("Enter New Grade");
+        int gradeLevel = sc.nextInt();
+        s.setgradeLevel(gradeLevel);
+    }
+
+    private static void modifyname(Student s) {
+        System.out.println("Enter New Name");
+        String newName = sc.nextLine();
+        s.setstudentName(newName);
+    }
+
     private static void optionThree() {
         System.out.println("Enter Subject");
         String subject = sc.nextLine();
