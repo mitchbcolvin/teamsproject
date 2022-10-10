@@ -22,6 +22,10 @@ public class Teacher implements Serializable {
     public int getyearsOfExperience(){
         return yearsOfExperience;
     }
+
+    public String toString(){
+        return teacherName;
+    }
     
     
 }

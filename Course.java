@@ -41,15 +41,30 @@ public class Course implements Serializable, Cloneable{
         return current;
     }
 
-    public Course clone() {
-        try {
+
+    public Course clone(){
+        try{
             return (Course) super.clone();
-        } catch (Exception e) {
+        } catch (Exception e){
         }
-        return null;
+        return null ;
     }
 
-    public int totalGrade()
+    public String toString(){
+        if(grade > 0){
+            return subject+" "+ "by" +" "+ teacher+ "Grade: "+grade;}
+        else{
+            return subject+" "+ "by"+" "+ teacher;
+        }
+
+    }
+
+
+
+    //public int totalGrade(){
+
+    }
+
 
     
-}
+

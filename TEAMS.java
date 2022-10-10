@@ -76,6 +76,34 @@ public class TEAMS{
         }
     }
 
+   // private static void optionEight() {
+        //try{
+
+            //saveData();
+        
+       // }catch (Exception e){
+       // }
+   // }
+
+    private static void optionSeven() {
+        boolean found = false;
+        System.out.println("Enter Student Name");
+        String studentName = sc.nextLine();
+        for (int i = 0; i < students.size(); i++){
+            Student s = students.get(i);
+            System.out.println(i + " " + students.get(i));
+            if (s.getstudentName().equals(studentName)){
+                System.out.println(s);
+                found = true;
+            }
+        }
+        if(! found){
+            System.out.println("Not Found");
+        }
+
+
+    }
+
     private static void optionSix(){
         System.out.println("Listing Courses");
         for (int i = 0; i < courses.size(); i ++){
@@ -111,15 +139,27 @@ public class TEAMS{
 
         if(choice2 == 1){
             modifyname(student);
-        }else if (choice2 = 2){
+        }else if (choice2 == 2){
             modifygradelevel(student);
-        }else if (choice2 = 3){
+        }else if (choice2 == 3){
             addclass(student);
-        }else if (choice2 = 4){
-            removeclass();
+        }else if (choice2 == 4){
+            removeclass(student);
         }
 
     }
+    private static void removeclass(Student s) {
+        System.out.println("Pick a class to remove:");
+        ArrayList<Course> courses = s.getcourses();
+        for(int i = 0; i < courses.size(); i++){
+            System.out.println(i + " "+ courses.get(i));
+        }
+        System.out.println("Choice");
+        int ans = sc.nextInt();
+        Course c = courses.get(ans);
+        s.removeCourse(c);
+    }
+
     private static void addclass(Student s) {
         System.out.println("Pick a Class");
         optionSix();
@@ -147,8 +187,8 @@ public class TEAMS{
 
     private static void modifygradelevel(Student s) {
         System.out.println("Enter New Grade");
-        int gradeLevel = sc.nextInt();
-        s.setgradeLevel(gradeLevel);
+        int newgradeLevel = sc.nextInt();
+        s.setgradeLevel(newgradeLevel);
     }
 
     private static void modifyname(Student s) {

@@ -6,6 +6,7 @@ public class Student implements Serializable {
     private int gradeLevel;
     private int calculateGPA;
     private ArrayList<Course> courses;
+    private String bestclass;
 
     public Student(String studentName, int gradeLevel){
         this.studentName = studentName;
@@ -13,9 +14,17 @@ public class Student implements Serializable {
         courses= new ArrayList<>();
     }
 
-    public void setstudentName(String n ){
+    public void setstudentName(String n){
         studentName = n;
     }  
+
+    public ArrayList<Course> getcourses(){
+        return courses;
+    }
+
+    public void removeCourse(Course c){
+        courses.remove (c);
+    }
     
     public String getstudentName(){
         return studentName;
@@ -32,25 +41,60 @@ public class Student implements Serializable {
     public void addCourse(Course c){
         courses.add(c);
     }
-    
-    
-    public boolean calculateGPA(){
-        if(totalGrade = (totalGrade >= 90),(totalGrade <= 100));
-        System.out.println("GPA is 4");
 
-        if(totalGrade = (totalGrade >= 80), (totalGrade <= 89));
-        System.out.println("GPA is 3");
-
-        if(totalGrade = (totalGrade >=70), (totalGrade <= 79));
-        System.out.println("GPA is 2");
-
-        if(totalGrade = (totalGrade >= 60),(totalGrade <= 69));
-        System.out.ptintln("Gpa is 1");
-
-        if(totalGrade = (totalGrade >=0),(totalGrade <= 59));
-        System.out.ptintln("GPA is 0");
-        
-        
+    public void setcalculateGPA(double g){
+        g = calculateGPA;
     }
+    
+    
+    public double calculateGPA(){
+        int gpaPoints = 0;
+        for(int i = 0; i < courses.size(); i++){
+            Course c= courses.get(i);
+            double grade = c.getgrade();
+            if(grade>= 90){
+                gpaPoints += 4;
+            }
+            if(grade >= 80 && grade<90){
+                gpaPoints += 3;
+            }
+            if(grade >= 70 && grade<80){
+                gpaPoints += 2;
+            }
+            if(grade >= 60 & grade<70){
+                gpaPoints += 1;
+            }
+        }
+        return (double) gpaPoints/courses.size();
+     }
+
+    public void setbestclass(String bestclass){
+        this.bestclass= bestclass;
+    }
+
+    public Course getbestclass(){
+        if(courses.size()== 0){
+            return null;
+        }
+        Course best = courses.get(0);
+        for(int i = 0; i < courses.size(); i++){
+             Course c = courses.get(i);
+            if(c.getgrade() > best.getgrade()){
+            best = c;
+        }
+    
+    }
+    return best;
+}
+
+public String toString(){
+    if(getbestclass() == null){
+        return "Name:"+studentName+ " "+"Grade Level:"+gradeLevel+ " "+ "GPA: "+ calculateGPA();
+    }
+    else{
+        return "Name:"+ studentName+ " "+ "Grade Level:"+gradeLevel+ " "+ "GPA:"+ calculateGPA()+ "Best Class:"+ getbestclass();
+    }
+}
+        
 
 }
